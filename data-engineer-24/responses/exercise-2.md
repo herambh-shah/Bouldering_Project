@@ -45,9 +45,19 @@ DateTimeSlot
 Customer
 | Column Name | Type | Description |
 | --- | --- | --- |
-| CustomerKey | Int | Unique identifier for datetime table (Primary key) |
-| CustomerId | varchar | Full Date of Class |
+| CustomerKey | Int | Unique identifier for Customer table (Primary key) |
+| CustomerId | varchar | Unique identifier for customer |
 | Name | varchar | Customer's Name |
 | Contact | varchar | Customer's Mobile Number |
 | Experience level  | Enum | Climbing Experience |
+
+ClassType
+| Column Name | Type | Description |
+| --- | --- | --- |
+| ClassTypeKey | Int | Unique identifier for Classtype table (Primary key) |
+| ClassName | varchar | Name of Class |
+| ClassLevel | varchar | Difficulty of class |
+| ClassDescription | String | Description of class |
+
+
 
