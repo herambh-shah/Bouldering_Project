@@ -13,16 +13,18 @@ Dimension Tables -
 
 ## Fact Table
 
-| Column Name           |    Type        | Description                                   |
-|RegistrationID	        |    INT         | Unique identifier for each registration       |
-|DateTimeSlotKey	    |    INT         | Foreign key to the DateTimeSlot dimension     |
-|CustomerKey            |    INT         | Foreign key to the Customer dimension         |
-|ClassTypeKey           |    INT         | Foreign key to the ClassType dimension        |
-|InstructorKey          |    INT         | Foreign key to the Instructor dimension       |
-|MembershipTypeKey      |    INT         | Foreign key to the MembershipType dimension   |
-|PaymentKey             |    INT         | Foreign key to the PaymentMethod dimension    |
-|RegistrationFee	    | DECIMAL(10,2)  | Fee charged for the class registration        |
-|EquipmentRentalIncluded|     BIT	     | Indicates if equipment rental is included     |
+| Column Name | Type | Description |
+| --- | --- | --- |
+| RegistrationId | Int | Unique identifier for each registartion (Primary key) |
+| DateKey | Int | Foreign key to the DateTimeSlot dimension |
+| CustomerKey | Int | Foreign key to the Customer dimension |
+| ClassTypeKey | Int | Foreign key to the ClassType dimension |
+| InstructorKey | Int | Foreign key to the Instructor dimension |
+| MembershipTypeKey | Int | Foreign key to the MembershipType dimension |
+| PaymentKey | Int | Foreign key to the PaymentMethod dimension |
+| RegistrationFee | DECIMAL(10,2) | Fee charged |
+| EquipmentRentalIncluded | Bit | Boolean for checking if equipment is used |
+
 
 | Column Name | Type | Description |
 | --- | --- | --- |
