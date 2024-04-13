@@ -1,21 +1,11 @@
 # Exercise 2
 
 ## Business Process Description
-Fact Table -
-ClimbingClassRegistrations: This is the central table that records every instance of a customer registering for a climbing class.
+Customers at a climbing gym register for climbing classes, choosing from various types and levels. The registration captures essential details like the class type, schedule, instructor, and payment, along with any membership benefits that apply. The gym records each transaction, including fees and payment methods.
 
-Dimension Tables -
- DateTimeSlot: Combines date and time into one table, detailing when classes are scheduled. 
- 
- Customer: Contains demographic and contact information for customers, along with their climbing experience level. 
- 
- ClassType: Describes the different types of climbing classes available, including the difficulty level and what the class entails. 
- 
- Instructor: Lists the instructors, their qualifications, and any other relevant information that identifies who is teaching the class. 
- 
- MembershipType: Outlines the various membership options available at the gym, detailing the benefits and terms of each type. 
- 
- PaymentMethod: Describes the different methods of payment that customers can use to pay for classes, such as credit cards, cash, or online payments.
+Star Schema for OLAP
+A star schema has been created for the climbing gym OLAP system, centered around the ClimbingClassRegistrations table, which records class registration transactions. It's surrounded by dimensions for time slots, customer details, class types, instructors, membership types, and payment methods, enabling multidimensional analysis.
+
 
 ## Fact Table
 Fact Table - ClimbingClassRegistration
@@ -23,9 +13,9 @@ Fact Table - ClimbingClassRegistration
 | --- | --- | --- |
 | RegistrationId | Int | Unique identifier for each registartion (Primary key) |
 | DateKey | Int | Foreign key to the DateTimeSlot dimension |
-| CustomerKey | Int | Foreign key to the Customer dimension |
+| CustomerId | Int | Foreign key to the Customer dimension |
 | ClassTypeKey | Int | Foreign key to the ClassType dimension |
-| InstructorKey | Int | Foreign key to the Instructor dimension |
+| InstructorID | Int | Foreign key to the Instructor dimension |
 | MembershipTypeKey | Int | Foreign key to the MembershipType dimension |
 | PaymentKey | Int | Foreign key to the PaymentMethod dimension |
 | RegistrationFee | DECIMAL(10,2) | Fee charged |
@@ -45,8 +35,7 @@ DateTimeSlot
 Customer
 | Column Name | Type | Description |
 | --- | --- | --- |
-| CustomerKey | Int | Unique identifier for Customer table (Primary key) |
-| CustomerId | varchar | Unique identifier for customer |
+| CustomerId | varchar | Unique identifier for customer(primary key) |
 | Name | varchar | Customer's Name |
 | Contact | varchar | Customer's Mobile Number |
 | Experience level  | Enum | Climbing Experience |
@@ -58,6 +47,33 @@ ClassType
 | ClassName | varchar | Name of Class |
 | ClassLevel | varchar | Difficulty of class |
 | ClassDescription | String | Description of class |
+
+Instructor
+| Column Name | Type | Description |
+| --- | --- | --- |
+| InstructorID | int | Primary key |
+| Name | varchar | Full Name |
+| Qualifications | String | Certifications and qualifications of instructor |
+
+MembershipType
+| Column Name | Type | Description |
+| --- | --- | --- |
+| MembershipTypeKey | int | Primary key |
+| TypeName | varchar | name of membership type |
+| Description | varchar | benefits and desciption of membership |
+
+MembershipType
+| Column Name | Type | Description |
+| --- | --- | --- |
+| MembershipTypeKey | int | Primary key |
+| TypeName | varchar | name of membership type |
+| Description | varchar | benefits and desciption of membership |
+
+PaymentMethod
+| Column Name | Type | Description |
+| --- | --- | --- |
+| Paymentkey | Int | Primary key |
+| Method | varchar | Card method(credit, Debit, Zelle) |
 
 
 
