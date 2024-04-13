@@ -5,14 +5,20 @@ Fact Table -
 ClimbingClassRegistrations: This is the central table that records every instance of a customer registering for a climbing class.
 
 Dimension Tables -
- DimDateTimeSlot: Combines date and time into one table, detailing when classes are scheduled. DimCustomer: Contains demographic and contact information for customers, along with their climbing experience level. 
- DimClassType: Describes the different types of climbing classes available, including the difficulty level and what the class entails. 
- DimInstructor: Lists the instructors, their qualifications, and any other relevant information that identifies who is teaching the class. 
- DimMembershipType: Outlines the various membership options available at the gym, detailing the benefits and terms of each type. 
- DimPaymentMethod: Describes the different methods of payment that customers can use to pay for classes, such as credit cards, cash, or online payments.
+ DateTimeSlot: Combines date and time into one table, detailing when classes are scheduled. 
+ 
+ Customer: Contains demographic and contact information for customers, along with their climbing experience level. 
+ 
+ ClassType: Describes the different types of climbing classes available, including the difficulty level and what the class entails. 
+ 
+ Instructor: Lists the instructors, their qualifications, and any other relevant information that identifies who is teaching the class. 
+ 
+ MembershipType: Outlines the various membership options available at the gym, detailing the benefits and terms of each type. 
+ 
+ PaymentMethod: Describes the different methods of payment that customers can use to pay for classes, such as credit cards, cash, or online payments.
 
 ## Fact Table
-
+Fact Table - ClimbingClassRegistration
 | Column Name | Type | Description |
 | --- | --- | --- |
 | RegistrationId | Int | Unique identifier for each registartion (Primary key) |
@@ -26,11 +32,22 @@ Dimension Tables -
 | EquipmentRentalIncluded | Bit | Boolean for checking if equipment is used |
 
 
-| Column Name | Type | Description |
-| --- | --- | --- |
-| a | b | c |
 
 ## Dimension
+DateTimeSlot
 | Column Name | Type | Description |
 | --- | --- | --- |
-| example | varchar | some text here |
+| DateKey | Int | Unique identifier for datetime table (Primary key) |
+| Date | Date | Full Date of Class |
+| StartTime | Int | Capture start time of class |
+| EndTime | Int | Capture end time of class |
+
+Customer
+| Column Name | Type | Description |
+| --- | --- | --- |
+| CustomerKey | Int | Unique identifier for datetime table (Primary key) |
+| CustomerId | varchar | Full Date of Class |
+| Name | varchar | Customer's Name |
+| Contact | varchar | Customer's Mobile Number |
+| Experience level  | Enum | Climbing Experience |
+
