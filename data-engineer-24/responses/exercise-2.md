@@ -24,6 +24,10 @@ Dimension Tables -
 |RegistrationFee	    | DECIMAL(10,2)  | Fee charged for the class registration        |
 |EquipmentRentalIncluded|     BIT	     | Indicates if equipment rental is included     |
 
+| Column Name | Type | Description |
+| --- | --- | --- |
+| a | b | c |
+
 ## Dimension
 | Column Name | Type | Description |
 | --- | --- | --- |
